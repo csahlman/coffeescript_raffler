@@ -3,7 +3,9 @@ window.CoffeescriptFun =
   Collections: {}
   Views: {}
   Routers: {}
-  initialize: -> alert 'Hello from Backbone!'
+  initialize: -> 
+    @appRouter = new CoffeescriptFun.Routers.Entries
+    Backbone.history.start()
 
 $(document).ready ->
   CoffeescriptFun.initialize()

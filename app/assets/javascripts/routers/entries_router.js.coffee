@@ -2,12 +2,16 @@ class CoffeescriptFun.Routers.Entries extends Backbone.Router
 
   routes: 
     '': 'index'
-    'show/:id': 'show'
+    'entries/:id': 'show'
 
   initialize: ->
-    console.log "Initialized Router"
+    @el = $('#container')
+    @collection = new CoffeescriptFun.Collections.Entries
 
   index: ->
+    indexView = new CoffeescriptFun.Views.EntriesIndex
+      collection: @collection
+    @el.html(indexView.render().el)
 
   show: (id) ->
-    alert "Entry #{id}"
+    console.log "Entry #{id}"

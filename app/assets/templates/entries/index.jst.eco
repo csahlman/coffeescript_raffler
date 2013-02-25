@@ -1,0 +1,20 @@
+<h1>Raffler</h1>
+
+<form id="new_entry">
+  <input type="text" name="name" id="new_entry_name">
+  <input type="submit" value="Add">
+</form>
+
+<% if @entries: %>
+<ul id="entries"> 
+  <% for entry in @entries: %>
+    <% if entry.get('winner') is true: %>
+      <li><%= entry.get('name') %><span class="winner">WINNER</span></li>
+    <% else: %>
+      <li><%= entry.get('name') %></li>
+    <% end %>
+  <% end %>
+</ul>
+<% end %>
+
+<button type="button" id="draw_winner">Draw Winner</button>
